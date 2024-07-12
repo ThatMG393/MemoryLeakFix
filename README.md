@@ -4,7 +4,7 @@
 For the best performance & memory usage, I recommend using this mod with:  
 - [lithium-fabric](https://github.com/CaffeineMC/lithium-fabric) - The best general performance mod  
 - [FerriteCore](https://github.com/malte0811/FerriteCore) - Memory usage optimizations 
-  
+
   
 **Memory Leak Explanations:** https://github.com/fxmorin/memoryLeakFix/wiki/Current-Fixes  
 

@@ -21,14 +21,6 @@ if (!build16) {
 }
 
 loom {
-    /*
-    accessWidenerPath = project(":common").loom.accessWidenerPath
-
-    forge {
-        convertAccessWideners = true
-        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
-    }
-     */
     forge {
         def commonMixinId = "memoryleakfix" + (build16 ? "-16" : "")
         mixinConfig commonMixinId + ".mixins.json"
@@ -54,15 +46,6 @@ dependencies {
 
     // MixinExtras
     forgeRuntimeLibrary(shadowCommon(annotationProcessor("io.github.llamalad7:mixinextras-common:${rootProject.mixinextras_version}"))) {transitive false}
-/*
-    // Mixin
-    if (build16) {
-        shadowCommon(annotationProcessor("org.spongepowered:mixin:0.8.5")) {
-            transitive false
-        }
-    }
-
- */
 }
 
 processResources {
@@ -89,7 +72,6 @@ shadowJar {
     exclude "architectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
-    archiveClassifier "dev-shadow"
 
     relocate("com.llamalad7.mixinextras", "ca.fxco.memoryleakfix.mixinextras")
     mergeServiceFiles() // Very important!
@@ -98,11 +80,6 @@ shadowJar {
 remapJar {
     input.set shadowJar.archiveFile
     dependsOn shadowJar
-    archiveClassifier null
-}
-
-jar {
-    archiveClassifier "dev"
 }
 
 sourcesJar {
